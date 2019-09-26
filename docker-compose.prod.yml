@@ -1,0 +1,8 @@
+version: '3.3'
+
+services:
+  client:
+    image: registry.gitlab.com/sibdevstudio/public/<registry-build-name>
+    ports:
+      - 80:80
+      - 443:443
