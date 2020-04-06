@@ -1,6 +1,13 @@
-# develop stage
-FROM node:11.1-alpine as develop-stage
+ARG NODE_VERSION=12
+
+FROM node:${NODE_VERSION} AS builder
+
+RUN mkdir -p /app
 WORKDIR /app
+
 COPY package*.json ./
-RUN yarn install
+RUN npm install
+
 COPY . .
+
+EXPOSE 3000

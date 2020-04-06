@@ -1,8 +1,9 @@
-version: '3.3'
+version: '3.7'
 
 services:
-  client:
-    image: registry.gitlab.com/sibdevstudio/public/<registry-build-name>
+  client-nginx:
+    image: $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG
+    restart: always
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"

@@ -1,19 +1,34 @@
-# Для запуска в режиме разработки
+# vue-stub
 
-1. Старт контейнера `docker-compose up`
-
-----------------------------------
-
-# Решение проблем
-
-Если получили ошибку типа:
-
+## Project setup
 ```
-frontend_1  | Found bindings for the following environments:
-frontend_1  |   - OS X 64-bit with Node.js 10.x
-frontend_1  | 
-frontend_1  | This usually happens because your environment has changed since running `npm install`.
-frontend_1  | Run `npm rebuild node-sass` to download the binding for your current environment.
+npm install
 ```
 
-Выполните `docker-compose exec frontend npm rebuild node-sass`
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
