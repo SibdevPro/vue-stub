@@ -23,8 +23,8 @@ const router = new VueRouter({
 })
 
 // use to protect routes
-router.beforeEach = (to, from, next) => {
+router.beforeEach((to, from, next) => {
   next()
-}
+})
 
 export default router
