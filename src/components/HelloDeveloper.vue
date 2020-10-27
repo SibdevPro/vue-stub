@@ -5,7 +5,9 @@
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li>
+        <a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a>
+      </li>
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
     </ul>
     <ul>
@@ -23,7 +25,10 @@ import { LOGIN } from '@/store/actions/types'
 export default {
   name: 'HelloDeveloper',
   props: {
-    developer: String
+    developer: {
+      type: String,
+      required: true
+    }
   },
   computed: {
     loading() {

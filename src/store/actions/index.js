@@ -8,7 +8,8 @@ export default {
     const name = 'someState'
     commit(LOADING, name)
 
-    return apiService.auth()
+    return apiService
+      .auth()
       .then(model => {
         commit(SET_MODEL, { name, model })
       })

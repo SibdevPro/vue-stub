@@ -4,7 +4,10 @@ export function throwError(commit, title, message) {
   return error => {
     const status = error && error.response ? error.response.status : 0
     const payload = {
-      title, message, status, error
+      title,
+      message,
+      status,
+      error
     }
     commit(SET_ERROR, payload)
     throw error || new Error(message || title)
