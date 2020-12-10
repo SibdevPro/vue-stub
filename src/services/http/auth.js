@@ -34,7 +34,12 @@ class AuthService extends BaseHttpService {
 
   set access(token) {
     this._access = token
-    this.syncAuthHeader()
+
+    if (this._access) {
+      setHeader(AUTH_HEADER, generateAuthHeader(this.access))
+    } else {
+      unsetHeader(AUTH_HEADER)
+    }
 
     if (this.isTokensSync) {
       if (token) {
@@ -63,14 +68,6 @@ class AuthService extends BaseHttpService {
 
   hasAuthHeader() {
     return !!this.client.defaults.headers.common[AUTH_HEADER]
-  }
-
-  syncAuthHeader() {
-    if (this.access) {
-      setHeader(AUTH_HEADER, generateAuthHeader(this.access))
-    } else {
-      unsetHeader(AUTH_HEADER)
-    }
   }
 
   setAuthTokens({ access, refresh }) {
