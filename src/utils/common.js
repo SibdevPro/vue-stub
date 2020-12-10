@@ -1,11 +1,14 @@
-const storage = localStorage
-export function loadStorageItem(key) {
-  return storage.getItem(key)
+import _isPlainObject from 'is-plain-object'
+import _isEqual from 'lodash.isequal'
+
+export function isObject(value) {
+  return Object.prototype.toString.call(value) === '[object Object]'
 }
-export function saveStorageItem(key, value) {
-  storage.setItem(key, value)
-  return value
+
+export function isPlainObject(value) {
+  return _isPlainObject(value)
 }
-export function removeStorageItem(key) {
-  storage.removeItem(key)
+
+export function isEqual(value, other) {
+  return _isEqual(value, other)
 }

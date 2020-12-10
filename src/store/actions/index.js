@@ -1,6 +1,6 @@
 import { LOADING, SET_MODEL, LOADED } from '@/store/mutations/types'
 import { throwError } from '@/utils/store'
-import apiService from '@/apiService'
+import { authService } from '@/services/http'
 import * as types from './types'
 
 export default {
@@ -8,7 +8,7 @@ export default {
     const name = 'someState'
     commit(LOADING, name)
 
-    return apiService
+    return authService
       .auth()
       .then(model => {
         commit(SET_MODEL, { name, model })
