@@ -34,7 +34,7 @@ export default [
     meta: {
       middleware: [checkAuth]
     },
-    redirect: PRIVATE_ROUTE_NAME,
+    redirect: { name: PRIVATE_ROUTE_NAME },
     children: [
       {
         path: '/dashboard/private',
