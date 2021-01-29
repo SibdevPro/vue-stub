@@ -17,5 +17,14 @@ export default {
       .finally(() => {
         commit(LOADED, name)
       })
+  },
+
+  [types.LOGOUT]: ({ commit }) => {
+    const name = 'someState'
+    commit(LOADING, name)
+
+    return authService.logout().finally(() => {
+      commit(LOADED, name)
+    })
   }
 }
