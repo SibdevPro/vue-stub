@@ -1,8 +1,8 @@
+import authService from '@/services/auth'
 import { LOGIN_ROUTE_NAME } from '@/constants/routes'
-import { authService } from '@/services/http'
 
 export default function checkAuth({ next }) {
-  const hasAuthHeader = authService.hasAuthHeader()
-  if (hasAuthHeader) return next()
+  const hasAuthTokens = authService.hasAuthTokens()
+  if (hasAuthTokens) return next()
   return next({ name: LOGIN_ROUTE_NAME })
 }

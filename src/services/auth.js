@@ -1,18 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import { loadStorageItem, saveStorageItem, removeStorageItem } from '@/services/storage'
-import BaseHttpService from './base'
-import { setHeader, unsetHeader } from './client'
 
-const AUTH_HEADER = 'Authorization'
+// Use for implementation of refresh and authorize methods
+// import client from './http/client'
 
-const ACCESS_TOKEN = 'accessToken'
-const REFRESH_TOKEN = 'refreshToken'
+const ACCESS_TOKEN = 'app:access'
+const REFRESH_TOKEN = 'app:refresh'
 
-function generateAuthHeader(accessToken) {
-  return `Bearer ${accessToken}`
-}
-
-class AuthService extends BaseHttpService {
+class AuthService {
   _access = null
 
   _refresh = null
@@ -20,7 +15,6 @@ class AuthService extends BaseHttpService {
   _isTokensSync = true
 
   get isTokensSync() {
-    // eslint-disable-next-line no-underscore-dangle
     return this._isTokensSync
   }
 
@@ -34,12 +28,6 @@ class AuthService extends BaseHttpService {
 
   set access(token) {
     this._access = token
-
-    if (this._access) {
-      setHeader(AUTH_HEADER, generateAuthHeader(this.access))
-    } else {
-      unsetHeader(AUTH_HEADER)
-    }
 
     if (this.isTokensSync) {
       if (token) {
@@ -66,13 +54,17 @@ class AuthService extends BaseHttpService {
     }
   }
 
-  hasAuthHeader() {
-    return !!this.client.defaults.headers.common[AUTH_HEADER]
+  getAuthHeader() {
+    return this.access ? `Bearer ${this.access}` : undefined
   }
 
   setAuthTokens({ access, refresh }) {
     this.access = access
     this.refresh = refresh
+  }
+
+  hasAuthTokens() {
+    return !!this.access || !!this.refresh
   }
 
   removeAuthTokens() {
@@ -89,21 +81,41 @@ class AuthService extends BaseHttpService {
 
   // implementation of refresh tokens
   refreshAuthTokens() {
+    // const { refresh } = this
+    // return client.POST('/auth/refresh', { refresh }).then(tokens => {
+    //   this.setAuthTokens(tokens)
+    // })
+
     return Promise.resolve({ access: 'someAccess', refresh: 'someRefresh' }).then(tokens => {
       this.setAuthTokens(tokens)
     })
   }
 
-  // implementation of authentication
-  // eslint-disable-next-line class-methods-use-this
-  auth() {
+  // eslint-disable-next-line
+  login({ login = 'default login', password = 'default password' }) {
+    // return client.GET('/auth', { login, password }).then(tokens => {
+    //   this.setAuthTokens(tokens)
+    // })
+
     return new Promise(resolve => {
       setTimeout(() => {
-        const model = { someProperty: 'Какое-то значение модели авторизации' }
+        const model = { login, someProperty: 'Какое-то значение модели авторизации' }
+        this.setAuthTokens({ access: btoa(`${login}:${password}`), refresh: btoa(`${login}:${password}`) })
         resolve(model)
       }, 3000)
     })
   }
+
+  // eslint-disable-next-line
+  logout() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve()
+      }, 3000)
+    }).then(() => {
+      this.removeAuthTokens()
+    })
+  }
 }
 
-export default AuthService
+export default new AuthService()
