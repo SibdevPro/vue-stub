@@ -37,7 +37,7 @@ export default [
     redirect: { name: PRIVATE_ROUTE_NAME },
     children: [
       {
-        path: '/dashboard/private',
+        path: '',
         name: PRIVATE_ROUTE_NAME,
         component: () => import(/* webpackChunkName: 'private' */ '@/views/Private.vue')
       }
