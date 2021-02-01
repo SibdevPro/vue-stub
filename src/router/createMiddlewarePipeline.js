@@ -1,4 +1,4 @@
-function middlewarePipeline(context, middleware) {
+function createMiddlewarePipeline(context, middleware) {
   const nextMiddleware = middleware[0]
   const restMiddleware = middleware.slice(1)
 
@@ -10,10 +10,10 @@ function middlewarePipeline(context, middleware) {
     if (nextRoute !== undefined) {
       context.next(nextRoute)
     } else {
-      const nextPipeline = middlewarePipeline(context, restMiddleware)
+      const nextPipeline = createMiddlewarePipeline(context, restMiddleware)
       nextMiddleware({ ...context, next: nextPipeline })
     }
   }
 }
 
-export default middlewarePipeline
+export default createMiddlewarePipeline

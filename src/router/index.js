@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
-import middlewarePipeline from '@/router/middlewarePipeline'
+import createMiddlewarePipeline from '@/router/createMiddlewarePipeline'
 import { collectMatchedMiddleware } from '@/utils/router'
 import routes from './routes'
 
@@ -38,7 +38,7 @@ router.beforeEach((to, from, next) => {
   }
 
   const context = { to, from, next, store }
-  middlewarePipeline(context, middleware)()
+  createMiddlewarePipeline(context, middleware)()
 })
 
 export default router
