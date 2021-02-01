@@ -1,8 +1,8 @@
 import { AUTH_HEADER, ERROR_STATUSES } from '@/constants/http'
-import authService from './auth'
-import client, { addRequestInterceptor, addResponseInterceptor } from './http.client'
+import client from '../client'
+import authService from '../../services/auth'
 
-function requestWithAuth({ _withoutAuthHeader = false, ...config }) {
+export function requestWithAuth({ _withoutAuthHeader = false, ...config }) {
   if (_withoutAuthHeader) {
     return config
   }
@@ -20,7 +20,7 @@ function requestWithAuth({ _withoutAuthHeader = false, ...config }) {
   }
 }
 
-function handleAuthError(error) {
+export function handleAuthError(error) {
   const errorStatus = error.response.status
 
   if (errorStatus === ERROR_STATUSES.UNAUTHORIZED) {
@@ -40,11 +40,3 @@ function handleAuthError(error) {
 
   return Promise.reject(error)
 }
-
-function initializeInterceptors() {
-  authService.restoreAuthTokens()
-  addRequestInterceptor({ request: requestWithAuth })
-  addResponseInterceptor({ error: handleAuthError })
-}
-
-export default { initializeInterceptors }

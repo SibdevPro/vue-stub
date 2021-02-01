@@ -2,13 +2,18 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import httpService from './services/http'
+import authService from './services/auth'
+import initializeHttpInterceptors from './http/interceptors'
 
 import '@/assets/scss/base.scss'
 
 Vue.config.productionTip = false
 
-httpService.initializeInterceptors()
+// init auth service
+authService.restoreAuthTokens()
+
+// init http client interceptors
+initializeHttpInterceptors()
 
 new Vue({
   router,
