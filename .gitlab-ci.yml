@@ -29,7 +29,7 @@ test:
   stage: test
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" -f Dockerfile .
-    - docker run "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" npm run test:ci -- --coverage
+    - docker run "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" npm run test:unit -- --coverage
   only:
     - merge_request
 
