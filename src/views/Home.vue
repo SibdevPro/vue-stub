@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import HelloDeveloper from '@/components/HelloDeveloper.vue'
+import HelloDeveloper from '@/components/HelloDeveloper.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloDeveloper
-  }
-}
+    HelloDeveloper,
+  },
+};
 </script>

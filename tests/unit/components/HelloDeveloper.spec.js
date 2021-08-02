@@ -1,44 +1,44 @@
-import Vue from 'vue'
-import { shallowMount } from '@vue/test-utils'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import { shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
 // Components
-import HelloDeveloper from '@/components/HelloDeveloper.vue'
+import HelloDeveloper from '@/components/HelloDeveloper.vue';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 describe('HelloDeveloper component', () => {
-  let wrapper
-  let store
+  let wrapper;
+  let store;
 
   const DEFAULT_PROPS = {
-    developer: 'default value'
-  }
+    developer: 'default value',
+  };
 
   const DEFAULT_STORE_CONFIG = {
     state: {
       someState: {
-        loading: false
-      }
+        loading: false,
+      },
     },
     getters: {},
     actions: {},
-    mutations: {}
-  }
+    mutations: {},
+  };
 
   function initWrapper({ props } = {}) {
     const storeConfig = {
-      ...DEFAULT_STORE_CONFIG
-    }
+      ...DEFAULT_STORE_CONFIG,
+    };
 
-    store = new Vuex.Store(storeConfig)
+    store = new Vuex.Store(storeConfig);
 
     wrapper = shallowMount(HelloDeveloper, {
       propsData: {
         ...DEFAULT_PROPS,
-        ...props
+        ...props,
       },
-      store
-    })
+      store,
+    });
   }
 
   it.each`
@@ -47,11 +47,11 @@ describe('HelloDeveloper component', () => {
   `('developer welcome text is "$developer", when prop developer is "$developer"', ({ developer }) => {
     // Arrange
     const props = {
-      developer
-    }
-    initWrapper({ props })
+      developer,
+    };
+    initWrapper({ props });
 
     // Assert
-    expect(wrapper.text()).toContain(developer)
-  })
-})
+    expect(wrapper.text()).toContain(developer);
+  });
+});

@@ -20,33 +20,33 @@
 </template>
 
 <script>
-import { LOGIN } from '@/store/actions/types'
+import { LOGIN } from '@/store/actions/types';
 
 export default {
   name: 'HelloDeveloper',
   props: {
     developer: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     loading() {
-      return this.$store.state.someState.loading
+      return this.$store.state.someState.loading;
     },
     buttonText() {
-      return this.loading ? 'Загрузка...' : 'Ассинхроное действие'
+      return this.loading ? 'Загрузка...' : 'Ассинхроное действие';
     },
     someGetter() {
-      return this.$store.getters.someGetter
-    }
+      return this.$store.getters.someGetter;
+    },
   },
   methods: {
     handleClick() {
-      this.$store.dispatch(LOGIN)
-    }
-  }
-}
+      this.$store.dispatch(LOGIN);
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">

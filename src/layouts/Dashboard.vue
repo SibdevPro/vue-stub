@@ -16,8 +16,8 @@
 
 <script>
 export default {
-  name: 'DashboardLayout'
-}
+  name: 'DashboardLayout',
+};
 </script>
 
 <style lang="scss">

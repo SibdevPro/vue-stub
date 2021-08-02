@@ -3,6 +3,6 @@ export default {
     loading: false,
     model: {},
     params: {},
-    list: []
-  }
-}
+    list: [],
+  },
+};

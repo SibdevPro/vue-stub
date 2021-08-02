@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { DASHBOARD_ROUTE_NAME, LOGIN_ROUTE_NAME } from '@/constants/routes'
+import { DASHBOARD_ROUTE_NAME, LOGIN_ROUTE_NAME } from '@/constants/routes';
 
 export default {
   name: 'App',
@@ -21,11 +21,11 @@ export default {
         { to: { path: '/' }, title: 'Home' },
         { to: { path: '/about' }, title: 'About' },
         { to: { name: LOGIN_ROUTE_NAME }, title: 'Login' },
-        { to: { name: DASHBOARD_ROUTE_NAME }, title: 'Dashboard' }
-      ]
-    }
-  }
-}
+        { to: { name: DASHBOARD_ROUTE_NAME }, title: 'Dashboard' },
+      ];
+    },
+  },
+};
 </script>
 
 <style lang="scss">

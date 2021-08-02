@@ -3,5 +3,5 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/tests/unit/setup.js'],
   verbose: true,
   errorOnDeprecated: true,
-  clearMocks: true
-}
+  clearMocks: true,
+};

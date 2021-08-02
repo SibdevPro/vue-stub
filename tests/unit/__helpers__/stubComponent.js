@@ -7,6 +7,6 @@ export default function stubComponent(component, options = {}) {
     template: `<div><slot></slot></div>`,
     // allows wrapper.find(Component) to work for stub
     $_vueTestUtils_original: component,
-    ...options
-  }
+    ...options,
+  };
 }

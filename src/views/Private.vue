@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import { LOGIN_ROUTE_NAME } from '@/constants/routes'
-import authService from '@/services/auth'
+import { LOGIN_ROUTE_NAME } from '@/constants/routes';
+import authService from '@/services/auth';
 
 export default {
   name: 'Private',
   methods: {
     logout() {
       return authService.logout().then(() => {
-        this.$router.push({ name: LOGIN_ROUTE_NAME })
-      })
-    }
-  }
-}
+        this.$router.push({ name: LOGIN_ROUTE_NAME });
+      });
+    },
+  },
+};
 </script>

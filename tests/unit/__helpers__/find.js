@@ -6,7 +6,7 @@
  * @returns {import("@vue/test-utils").WrapperArray | undefined}
  */
 export function findAllByTestIdWithWrapper(wrapper, id) {
-  return wrapper.findAll(`[data-testid=${id}]`)
+  return wrapper.findAll(`[data-testid=${id}]`);
 }
 
 /**
@@ -17,7 +17,7 @@ export function findAllByTestIdWithWrapper(wrapper, id) {
  * @returns {import("@vue/test-utils").Wrapper | undefined}
  */
 export function findByTestIdWithWrapper(wrapper, id) {
-  return wrapper.find(`[data-testid=${id}]`)
+  return wrapper.find(`[data-testid=${id}]`);
 }
 
 /**
@@ -28,5 +28,5 @@ export function findByTestIdWithWrapper(wrapper, id) {
  * @returns {import("@vue/test-utils").Wrapper | undefined}
  */
 export function findButtonByTextWithWrapper(wrapper, text) {
-  return wrapper.findAll('button').wrappers.find(w => w.text() === text)
+  return wrapper.findAll('button').wrappers.find(w => w.text() === text);
 }
