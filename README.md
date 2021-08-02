@@ -4,13 +4,6 @@
 
 * [No eslint warnings on initial "npm run serve"](https://github.com/vuejs/vue-cli/issues/3065)
 
-## Docker environment
-
-### Start development server
-```
-docker-compose up
-```
-
 ## Project setup
 ```
 npm run install
