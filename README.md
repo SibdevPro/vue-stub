@@ -36,5 +36,16 @@ npm run test:unit
 npm run lint
 ```
 
+or
+
+```
+npm run lint:fix
+```
+
+### Lints and fixes styles
+```
+npm run lint:style
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

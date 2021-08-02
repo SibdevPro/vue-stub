@@ -40,6 +40,7 @@ $--green: #42b983;
 
   a {
     font-weight: $--font-weight-bold;
+
     &.router-link-exact-active {
       color: $--green;
     }
