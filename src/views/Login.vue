@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import { LOGIN } from '@/store/actions/types'
-import { PRIVATE_ROUTE_NAME } from '@/constants/routes'
+import { LOGIN } from '@/store/actions/types';
+import { PRIVATE_ROUTE_NAME } from '@/constants/routes';
 
 export default {
   name: 'Login',
   methods: {
     login() {
       return this.$store.dispatch(LOGIN).then(() => {
-        this.$router.push({ name: PRIVATE_ROUTE_NAME })
-      })
-    }
-  }
-}
+        this.$router.push({ name: PRIVATE_ROUTE_NAME });
+      });
+    },
+  },
+};
 </script>

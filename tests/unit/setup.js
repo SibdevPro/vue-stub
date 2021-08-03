@@ -1,3 +1,3 @@
-import { enableAutoDestroy } from '@vue/test-utils'
+import { enableAutoDestroy } from '@vue/test-utils';
 
-enableAutoDestroy(global.afterEach)
+enableAutoDestroy(global.afterEach);
