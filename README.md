@@ -24,15 +24,9 @@ npm run build
 npm run test:unit
 ```
 
-### Lints and fixes files
+### Lints files
 ```
 npm run lint
-```
-
-or
-
-```
-npm run lint:fix
 ```
 
 ### Lints and fixes styles
