@@ -1,0 +1,11 @@
+ARG NODE_VERSION=14.18.3-slim
+
+FROM node:${NODE_VERSION} AS builder
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
