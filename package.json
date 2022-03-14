@@ -7,7 +7,6 @@
     "build": "vue-cli-service build --mode production",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "lint:fix": "vue-cli-service lint --fix",
     "lint:style": "vue-cli-service lint:style"
   },
   "dependencies": {
