@@ -41,6 +41,14 @@ lint:
   only:
     - merge_request
 
+lint-style:
+  stage: test
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" -f Dockerfile.test .
+    - docker run "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" npm run lint:style -- --no-fix
+  only:
+    - merge_request
+
 build:
   stage: build
   script:
